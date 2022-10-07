@@ -178,7 +178,7 @@ endif
 define NCURSES_TARGET_CLEANUP_TERMINFO
 	$(RM) -rf $(TARGET_DIR)/usr/share/terminfo $(TARGET_DIR)/usr/share/tabset
 	$(foreach t,$(NCURSES_TERMINFO_FILES), \
-		$(INSTALL) -D -m 0644 $(STAGING_DIR)/usr/share/terminfo/$$(printf "%x" \'$$(echo $(t) | cut -c 1-1))$$(echo $(t) | cut -c 2-) \
+		$(INSTALL) -D -m 0644 $(STAGING_DIR)/usr/share/terminfo/$(t) \
 			$(TARGET_DIR)/usr/share/terminfo/$(t)
 	)
 endef
